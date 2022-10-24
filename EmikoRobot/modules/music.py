@@ -94,7 +94,7 @@ async def ytmusic(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"`Getting {urlissed} From Youtube Servers. Please Wait.`"
+        message.chat.id, f"`Getting {urlissed} جار البحث في خادم يوتيوب.`"
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
@@ -163,7 +163,7 @@ async def ytmusic(client, message: Message):
     if not urlissed:
         await client.send_message(
             message.chat.id,
-            "Invalid Command Syntax, Please Check Help Menu To Know More!",
+            "نص خاطئ,الرجاء الكتابة بشكل صحيح !",
         )
         return
     pablo = await client.send_message(
@@ -203,7 +203,7 @@ async def ytmusic(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(mo, download=True)
     except Exception as e:
-        await pablo.edit(f"**Failed To Download** \n**Error :** `{str(e)}`")
+        await pablo.edit(f"**فشل التحميل** \n**خطأ :** `{str(e)}`")
         return
     c_time = time.time()
     capy = f"**Song Name :** [{thum}]({mo}) \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}` "
@@ -220,7 +220,7 @@ async def ytmusic(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"`Uploading {urlissed} Song From YouTube Music!`",
+            f"`تم الرفع {urlissed} اغنية من اليوتيوب!`",
             file_stark,
         ),
     )
