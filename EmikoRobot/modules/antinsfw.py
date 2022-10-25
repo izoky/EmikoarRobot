@@ -81,14 +81,14 @@ async def detect_nsfw(_, message):
         return
     await message.reply_text(
         f"""
-**NSFW Image Detected & Deleted Successfully!
+**NSFW صورة ممنوعة & تم الحذف !
 ————————————————————**
-**User:** {message.from_user.mention} [`{message.from_user.id}`]
-**Safe:** `{results.neutral} %`
-**Porn:** `{results.porn} %`
-**Adult:** `{results.sexy} %`
-**Hentai:** `{results.hentai} %`
-**Drawings:** `{results.drawings} %`
+**المُرسل:** {message.from_user.mention} [`{message.from_user.id}`]
+**الآمان:** `{results.neutral} %`
+**الأباحية:** `{results.porn} %`
+**البالغ:** `{results.sexy} %`
+**المنع:** `{results.hentai} %`
+** الرسومات:** `{results.drawings} %`
 **————————————————————**
 __Use `/antinsfw off` to disable this.__
 """
@@ -130,11 +130,11 @@ async def nsfw_scan_command(_, message):
     results = results.result
     await m.edit(
         f"""
-**Neutral:** `{results.neutral} %`
-**Porn:** `{results.porn} %`
-**Hentai:** `{results.hentai} %`
-**Sexy:** `{results.sexy} %`
-**Drawings:** `{results.drawings} %`
+**محايد:** `{results.neutral} %`
+* أباحي:** `{results.porn} %`
+**هنتاي:** `{results.hentai} %`
+**مثير:** `{results.sexy} %`
+**الرسومات:** `{results.drawings} %`
 **NSFW:** `{results.is_nsfw}`
 """
     )
