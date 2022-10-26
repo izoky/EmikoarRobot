@@ -83,12 +83,13 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm an anime-theme management bot [✨](https://telegra.ph/file/11b5922a33de9968cedfe.jpg)
+✪ مرحبا انا بوت ادارة المجموعات المتطور  [✨](https://telegra.ph/file/11b5922a33de9968cedfe.jpg)
 ────────────────────────
-× *Uptime:* `{}`
-× `{}` *users, across* `{}` *chats.*
+× *وقت التشغيل:* `{}`
+× `{}` *المستخدم* `{}` *الدردشة.*
 ────────────────────────
-✪ Hit /help to see my available commands.
+✪ ارسل /help لعرض الأوامر
+.
 """
 
 buttons = [
@@ -96,14 +97,14 @@ buttons = [
         InlineKeyboardButton(text=f"About {dispatcher.bot.first_name}", callback_data="emiko_"),
     ],
     [
-        InlineKeyboardButton(text="Get Help", callback_data="help_back"),
+        InlineKeyboardButton(text="حصول على مساعدة", callback_data="help_back"),
         InlineKeyboardButton(
             text="Try inline!​​", switch_inline_query_current_chat=""
         ),
     ],
     [
         InlineKeyboardButton(
-            text="➗ Add Me To Your Group ➗", url=f"t.me/{bu}?startgroup=new"),
+            text="⭐ اضفني الى مجموعتك ⭐", url=f"t.me/{bu}?startgroup=new"),
     ],
 ]
 
@@ -230,7 +231,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"👋 Hi, I'm {dispatcher.bot.first_name}. Nice to meet You.",
+            f"👋 مرحبا انا {dispatcher.bot.first_name}. تشرفنا",
             parse_mode=ParseMode.HTML
        )
 
@@ -375,18 +376,18 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Admins", callback_data="emiko_admin"),
-                    InlineKeyboardButton(text="Notes", callback_data="emiko_notes"),
+                    InlineKeyboardButton(text="المشرفين", callback_data="emiko_admin"),
+                    InlineKeyboardButton(text="ملاحضة", callback_data="emiko_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="Support", callback_data="emiko_support"),
-                    InlineKeyboardButton(text="Credits", callback_data="emiko_credit"),
+                    InlineKeyboardButton(text="مساعدة", callback_data="emiko_support"),
+                    InlineKeyboardButton(text="الانتمائات", callback_data="emiko_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Source Code", url="https://github.com/kennedy-ex/EmikoRobot"),
+                    InlineKeyboardButton(text="قناة البوت", url="https://t.me/kivenbots"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="source_back"),
+                    InlineKeyboardButton(text="عودة↩️", callback_data="source_back"),
                  ]
                 ]
             ),
@@ -413,26 +414,26 @@ def emiko_about_callback(update, context):
         query.message.edit_text(
             text=f"<b>๏ Setting up notes</b>"
             f"\nYou can save message/media/audio or anything as notes"
-            f"\nto get a note simply use # at the beginning of a word"
-            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            f"\nللحصول على ملاحظة ، ما عليك سوى استخدام # في بداية الكلمة "
+            f"\nيمكنك أيضا تعيين أزرار للملاحظات والفلاتر (راجع قائمة التعليمات)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="عودة ↩️", callback_data="emiko_")]]
             ),
         )
     elif query.data == "emiko_support":
         query.message.edit_text(
             text="*๏ Emiko support chats*"
-            f"\nJoin My Support Group/Channel for see or report a problem on {dispatcher.bot.first_name}.",
+            f"\nانضم إلى مجموعتي/قناتي للتعرف على مشكلة أو الإبلاغ عنها on {dispatcher.bot.first_name}.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/emikosupport"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/KennedyProject"),
+                    InlineKeyboardButton(text="المطور", url="t.me/a37aa"),
+                    InlineKeyboardButton(text="التحديثات", url="https://t.me/Kivenbots"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
+                    InlineKeyboardButton(text="عودة↩️", callback_data="emiko_"),
                  
                  ]
                 ]
@@ -443,17 +444,17 @@ def emiko_about_callback(update, context):
     elif query.data == "emiko_credit":
         query.message.edit_text(
             text=f"๏ Credis for {dispatcher.bot.first_name}\n"
-            f"\nHere Developers Making And Give Inspiration For Made The {dispatcher.bot.first_name}",
+            f"\n هنا مطورين البوت يمكنك دعمنا بكوب قهوة ☕ {dispatcher.bot.first_name}",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="sena-ex", url="https://github.com/kennedy-ex"),
-                    InlineKeyboardButton(text="TheHamkerCat", url="https://github.com/TheHamkerCat"),
+                    InlineKeyboardButton(text="عبدالله", url="https://a37aa"),
+                    InlineKeyboardButton(text="مصطفى", url="https://t.me/devtelethon"),
                  ],
                  [
-                    InlineKeyboardButton(text="Feri", url="https://github.com/FeriEXP"),
-                    InlineKeyboardButton(text="riz-ex", url="https://github.com/riz-ex"),
+                    InlineKeyboardButton(text="تحديثات البوت", url="https://github.com/FeriEXP"),
+                    InlineKeyboardButton(text="قناة البوت", url="https://t.me/YYN4Y"),
                  ],
                  [
                     InlineKeyboardButton(text="Anime Kaizoku", url="https://github.com/animekaizoku"),
@@ -722,7 +723,7 @@ def get_settings(update: Update, context: CallbackContext):
                 ),
             )
         else:
-            text = "Click here to check your settings."
+            text = "أضغط هنا للذهاب الأعدادات ⚙️."
 
     else:
         send_settings(chat.id, user.id, True)
@@ -737,9 +738,9 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1866066766:
+        if OWNER_ID != 5539139939:
             update.effective_message.reply_text(
-                "I'm free for everyone ❤️ If you wanna make me smile, just join"
+                "انا بوت مجاني❤️ وابقى كذالك سوف يُسعد مطوري بانضمامك لقناته واضافتي لمجموعتك"
                 "[My Channel]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -786,7 +787,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                "👋 Hi, i'm alive.",
+                "👋 مرحبا انا اعمل ☑️.",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
