@@ -53,25 +53,25 @@ async def is_administrator(user_id: int, message):
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "**Group clean, not found the deleted account.**"
+    del_status = "**المجموعة نظيفة ، لم يتم العثور على الحساب المحذوف.**"
     if con != "clean":
-        kontol = await show.reply("`Searching deleted account...`")
+        kontol = await show.reply("`البحث في الحساب المحذوف...`")
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
             del_status = (
-                f"**Founding** `{del_u}` **Deleted account/Zombie On this group,"
-                "\nClean it with command** `/zombies clean`"
+                f"**التأسيس** `{del_u}` **حساب محذوف/Zombie ,في هذه المجموعة"
+                "\nقم بتنظيفه بأمر** `/zombies clean`"
             )
         return await kontol.edit(del_status)
     chat = await show.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await show.reply("**Sorry you're not admin!**")
-    memek = await show.reply("`Deleting deleted account...`")
+        return await show.reply("**آسف أنت لست مشرف!**")
+    memek = await show.reply("`حذف الحساب المحذوف...`")
     del_u = 0
     del_a = 0
     async for user in telethn.iter_participants(show.chat_id):
@@ -81,18 +81,18 @@ async def rm_deletedacc(show):
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                return await show.edit("`Not have a banned rights on this group`")
+                return await show.edit("`ليس لديك حقوق محظورة على هذه المجموعة`")
             except UserAdminInvalidError:
                 del_u -= 1
                 del_a += 1
             await telethn(EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
             del_u += 1
     if del_u > 0:
-        del_status = f"**Cleaned** `{del_u}` **Zombies**"
+        del_status = f"**منظف** `{del_u}` **Zombies**"
     if del_a > 0:
         del_status = (
-            f"**Cleaned** `{del_u}` **Zombies** "
-            f"\n`{del_a}` **Admin zombies not deleted.**"
+            f"**منظف** `{del_u}` **Zombies** "
+            f"\n`{del_a}` **لم يتم حذف المشرف.**"
         )
     await memek.edit(del_status)
 
